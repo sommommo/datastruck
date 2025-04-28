@@ -17,4 +17,4 @@ jobs:
                   python-version: "3.x"
 
             - name: Validate reports
-              run: ./Homework_1/.github/workflows/report.yml
+              run: ./.github/scripts/validator_linux
