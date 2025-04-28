@@ -1,0 +1,3 @@
+[submodule "Homework-template"]
+	path = Homework-template
+	url = git@github.com:NFU-OpenDataStructure/Homework-template.git
