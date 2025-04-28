@@ -12,7 +12,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Configure permission
-              run: chmod 777 Homework_1/.github/scripts/validator_linux
+              run: chmod 777 /.github/scripts/validator_linux
 
             - name: Validate reports
               run: Homework_1/.github/scripts/validator_linux
