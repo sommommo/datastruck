@@ -11,10 +11,8 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
 
-            - name: Set up Python
-              uses: actions/setup-python@v4
-              with:
-                  python-version: "3.x"
+            - name: Configure permission
+              run: chmod 777 ./.github/scripts/validator_linux
 
             - name: Validate reports
               run: ./.github/scripts/validator_linux
