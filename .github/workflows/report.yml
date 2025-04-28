@@ -15,4 +15,4 @@ jobs:
               run: chmod 777 ./.github/scripts/validator_linux
 
             - name: Validate reports
-              run: ./.github/scripts/validator_linux
+              run: Homework_1/.github/scripts/validator_linux
