@@ -284,9 +284,8 @@ void binaryInsertionSort(T* a, int n) {
 |**Merge**        |![Merge2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/merge2.png)                   |
 
 
+## 測試與驗證
 
-
-### 測試案例
 
 
 
