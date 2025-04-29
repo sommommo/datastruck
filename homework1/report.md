@@ -271,9 +271,9 @@ void binaryInsertionSort(T* a, int n) {
 |Sort        |                   |
 |-----------------|--------------|
 |**Insert**       |![Insert](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Insert1.png)                  |
-|**Quick**        |![Quick](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Quick.png)                   |
-|**Heap**         |![Heap](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Heap.png)                    |
-|**Merge**        |![Merge](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Merge.png)                   |
+|**Quick**        |![Quick](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Quick1.png)                   |
+|**Heap**         |![Heap](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Heap1.png)                    |
+|**Merge**        |![Merge](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Merge1.png)                   |
 
 ### 空間複雜度
 
