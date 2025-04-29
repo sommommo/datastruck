@@ -100,7 +100,7 @@ void benchmarkInsertionSort_vector(const std::vector<int>& arr) {
     std::cout << "�����ƧǮɶ��G" << total_time / repeat << " �L��\n";
     std::cout << "�Ƨǫe�O����ϥζq�G" << memory_before << " KB\n";
     std::cout << "�Ƨǫ�O����ϥζq�G" << memory_after << " KB\n";
-    std::cout << "�O����ϥ��ܤƶq�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "�O����ϥ��ܤ?�q�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
 // ========== �� �ǲ� Insert+InsertionSort �}�C�� ==========
@@ -133,7 +133,7 @@ void benchmarkInsertionSort_array_insert(const std::vector<int>& arr) {
     std::cout << "�����ƧǮɶ��G" << total_time / repeat << " �L��\n";
     std::cout << "�Ƨǫe�O����ϥζq�G" << memory_before << " KB\n";
     std::cout << "�Ƨǫ�O����ϥζq�G" << memory_after << " KB\n";
-    std::cout << "�O����ϥ��ܤƶq�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "�O����ϥ��ܤ?�q�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
 // ========== �� �G�����J�Ƨ� (Binary Insertion Sort) ==========
@@ -165,20 +165,19 @@ void benchmarkInsertionSort_array_binary(const std::vector<int>& arr) {
     std::cout << "�����ƧǮɶ��G" << total_time / repeat << " �L��\n";
     std::cout << "�Ƨǫe�O����ϥζq�G" << memory_before << " KB\n";
     std::cout << "�Ƨǫ�O����ϥζq�G" << memory_after << " KB\n";
-    std::cout << "�O����ϥ��ܤƶq�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "�O����ϥ��ܤ?�q�G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
-// ========== �D�{�� ==========
+// ========== �D�{�� ==========
+/*
 int main() {
     int n;
-    std::cout << "�п�J�����Ӽơ]�|Ū�� testcaseN.txt�^�G";
+    std::cout << "�п�J�����Ӽơ]�|Ū�� testcaseN.txt�^�G";
     std::cin >> n;
-
     std::string filename = "testcase" + to_string_custom(n) + ".txt";
     auto data = readDataFromFile(filename);
-
     if (data.empty()) {
-        std::cerr << "���Ū�����ѡA�нT�{�ɮ׬O�_�s�b�C\n";
+        std::cerr << "���Ū�����ѡA�нT�{�ɮ׬O�_�s�b�C\n";
         return 1;
     }
 
@@ -188,3 +187,4 @@ int main() {
 
     return 0;
 }
+*/

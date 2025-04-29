@@ -166,6 +166,7 @@ void benchmarkNaturalMergeSort(const std::vector<int>& arr) {
 }
 
 // ========== 主程式 ==========
+/*
 int main() {
     int n;
     std::cout << "請輸入元素個數（會讀取 testcaseN.txt）：";
@@ -178,3 +179,4 @@ int main() {
     benchmarkNaturalMergeSort(data);
     return 0;
 }
+*/
