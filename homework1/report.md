@@ -282,3 +282,5 @@ void binaryInsertionSort(T* a, int n) {
 ### 結論
 
 
+
+## 申論及開發報告
