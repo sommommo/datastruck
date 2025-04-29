@@ -266,7 +266,9 @@ void binaryInsertionSort(T* a, int n) {
 ```
 
 ## 效能分析
-*時間複雜度*
+**時間複雜度**
+
+**空間複雜度**
 
 ## 測試與驗證
 
@@ -274,7 +276,6 @@ void binaryInsertionSort(T* a, int n) {
 
 
 
-### 編譯與執行指令
 
 
 
