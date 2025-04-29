@@ -1,6 +1,6 @@
 #include "header.h"
 
-// ========== ¦Û¤v¼gªº to_string_custom ==========
+// ========== ï¿½Û¤vï¿½gï¿½ï¿½ to_string_custom ==========
 template<typename T>
 std::string to_string_custom(const T& value) {
     std::ostringstream oss;
@@ -8,7 +8,7 @@ std::string to_string_custom(const T& value) {
     return oss.str();
 }
 
-// ========== ´¡¤J¨ç¦¡ (¶Ç²Î°}¦Cª©) ==========
+// ========== ï¿½ï¿½ï¿½Jï¿½ç¦¡ (ï¿½Ç²Î°}ï¿½Cï¿½ï¿½) ==========
 template<class T>
 void Insert(const T& e, T* a, int i) {
     a[0] = e;
@@ -19,7 +19,7 @@ void Insert(const T& e, T* a, int i) {
     a[i + 1] = e;
 }
 
-// ========== Insertion Sort (¶Ç²Î°}¦Cª©¡A¥Î Insert) ==========
+// ========== Insertion Sort (ï¿½Ç²Î°}ï¿½Cï¿½ï¿½ï¿½Aï¿½ï¿½ Insert) ==========
 template<class T>
 void InsertionSort(T* a, const int n) {
     for (int j = 2; j <= n; j++) {
@@ -28,7 +28,7 @@ void InsertionSort(T* a, const int n) {
     }
 }
 
-// ========== ¤G¤À´¡¤J±Æ§Ç (Binary Insertion Sort) ==========
+// ========== ï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Æ§ï¿½ (Binary Insertion Sort) ==========
 template<typename T>
 void binaryInsertionSort(T* a, int n) {
     for (int i = 1; i < n; ++i) {
@@ -46,7 +46,7 @@ void binaryInsertionSort(T* a, int n) {
     }
 }
 
-// ========== STL Vectorª© Insertion Sort ==========
+// ========== STL Vectorï¿½ï¿½ Insertion Sort ==========
 void insertionSort(std::vector<int>& vec) {
     for (auto it = vec.begin(); it != vec.end(); ++it) {
         auto insertion_point = std::upper_bound(vec.begin(), it, *it);
@@ -54,11 +54,11 @@ void insertionSort(std::vector<int>& vec) {
     }
 }
 
-// ========== Åª¨ú TXT ´ú¸ê ==========
+// ========== Åªï¿½ï¿½ TXT ï¿½ï¿½ï¿½ï¿½ ==========
 std::vector<int> readDataFromFile(const std::string& filename) {
     std::ifstream fin(filename);
     if (!fin) {
-        std::cerr << "¶}±ÒÀÉ®×¥¢±Ñ¡I\n";
+        std::cerr << "ï¿½}ï¿½ï¿½ï¿½É®×¥ï¿½ï¿½Ñ¡I\n";
         return {};
     }
     std::vector<int> data;
@@ -70,14 +70,14 @@ std::vector<int> readDataFromFile(const std::string& filename) {
     return data;
 }
 
-// ========== ¨ú±o°O¾ÐÅé¨Ï¥Î¶q ==========
+// ========== ï¿½ï¿½ï¿½oï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶q ==========
 size_t getMemoryUsageKB() {
     PROCESS_MEMORY_COUNTERS memInfo;
     GetProcessMemoryInfo(GetCurrentProcess(), &memInfo, sizeof(memInfo));
     return memInfo.WorkingSetSize / 1024;
 }
 
-// ========== ´ú STL Vectorª© ==========
+// ========== ï¿½ï¿½ STL Vectorï¿½ï¿½ ==========
 void benchmarkInsertionSort_vector(const std::vector<int>& arr) {
     const int repeat = 1;
     long long total_time = 0;
@@ -96,14 +96,14 @@ void benchmarkInsertionSort_vector(const std::vector<int>& arr) {
         total_time += std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     }
 
-    std::cout << "====== STL Vectorª©¥» Insertion Sort ======\n";
-    std::cout << "¥­§¡±Æ§Ç®É¶¡¡G" << total_time / repeat << " ·L¬í\n";
-    std::cout << "±Æ§Ç«e°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_before << " KB\n";
-    std::cout << "±Æ§Ç«á°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_after << " KB\n";
-    std::cout << "°O¾ÐÅé¨Ï¥ÎÅÜ¤Æ¶q¡G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "====== STL Vectorï¿½ï¿½ï¿½ï¿½ Insertion Sort ======\n";
+    std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
+    std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_before << " KB\n";
+    std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_after << " KB\n";
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
-// ========== ´ú ¶Ç²Î Insert+InsertionSort °}¦Cª© ==========
+// ========== ï¿½ï¿½ ï¿½Ç²ï¿½ Insert+InsertionSort ï¿½}ï¿½Cï¿½ï¿½ ==========
 void benchmarkInsertionSort_array_insert(const std::vector<int>& arr) {
     const int repeat = 1;
     long long total_time = 0;
@@ -129,14 +129,14 @@ void benchmarkInsertionSort_array_insert(const std::vector<int>& arr) {
         delete[] temp;
     }
 
-    std::cout << "====== ¶Ç²Î°}¦Cª©¥» (Insert + InsertionSort) ======\n";
-    std::cout << "¥­§¡±Æ§Ç®É¶¡¡G" << total_time / repeat << " ·L¬í\n";
-    std::cout << "±Æ§Ç«e°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_before << " KB\n";
-    std::cout << "±Æ§Ç«á°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_after << " KB\n";
-    std::cout << "°O¾ÐÅé¨Ï¥ÎÅÜ¤Æ¶q¡G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "====== ï¿½Ç²Î°}ï¿½Cï¿½ï¿½ï¿½ï¿½ (Insert + InsertionSort) ======\n";
+    std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
+    std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_before << " KB\n";
+    std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_after << " KB\n";
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
-// ========== ´ú ¤G¤À´¡¤J±Æ§Ç (Binary Insertion Sort) ==========
+// ========== ï¿½ï¿½ ï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½Æ§ï¿½ (Binary Insertion Sort) ==========
 void benchmarkInsertionSort_array_binary(const std::vector<int>& arr) {
     const int repeat = 1;
     long long total_time = 0;
@@ -161,24 +161,24 @@ void benchmarkInsertionSort_array_binary(const std::vector<int>& arr) {
         delete[] temp;
     }
 
-    std::cout << "====== Àu¤Æ°}¦Cª©¥» (Binary Insertion Sort + memmove) ======\n";
-    std::cout << "¥­§¡±Æ§Ç®É¶¡¡G" << total_time / repeat << " ·L¬í\n";
-    std::cout << "±Æ§Ç«e°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_before << " KB\n";
-    std::cout << "±Æ§Ç«á°O¾ÐÅé¨Ï¥Î¶q¡G" << memory_after << " KB\n";
-    std::cout << "°O¾ÐÅé¨Ï¥ÎÅÜ¤Æ¶q¡G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
+    std::cout << "====== ï¿½uï¿½Æ°}ï¿½Cï¿½ï¿½ï¿½ï¿½ (Binary Insertion Sort + memmove) ======\n";
+    std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
+    std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_before << " KB\n";
+    std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << memory_after << " KB\n";
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (memory_after > memory_before ? memory_after - memory_before : 0) << " KB\n\n";
 }
 
-// ========== ¥Dµ{¦¡ ==========
+// ========== ï¿½Dï¿½{ï¿½ï¿½ ==========
 int main() {
     int n;
-    std::cout << "½Ð¿é¤J¤¸¯À­Ó¼Æ¡]·|Åª¨ú testcaseN.txt¡^¡G";
+    std::cout << "ï¿½Ð¿ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ó¼Æ¡]ï¿½|Åªï¿½ï¿½ testcaseN.txtï¿½^ï¿½G";
     std::cin >> n;
 
     std::string filename = "testcase" + to_string_custom(n) + ".txt";
     auto data = readDataFromFile(filename);
 
     if (data.empty()) {
-        std::cerr << "¸ê®ÆÅª¨ú¥¢±Ñ¡A½Ð½T»{ÀÉ®×¬O§_¦s¦b¡C\n";
+        std::cerr << "ï¿½ï¿½ï¿½Åªï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡Aï¿½Ð½Tï¿½{ï¿½É®×¬Oï¿½_ï¿½sï¿½bï¿½C\n";
         return 1;
     }
 
