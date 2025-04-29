@@ -266,15 +266,16 @@ void binaryInsertionSort(T* a, int n) {
 ```
 
 ## 效能分析
-**時間複雜度**
-|Sort        |            |
-|---------------------|--------------------|
-|**Insert**       |                        |
-|**Binary Insert**|                        |
-|**Heap**         |                        |
-|**Optimized Heap**|                        |
-|**Merge**        |                        |
-**空間複雜度**
+
+### 時間複雜度 
+|Sort        |                   |
+|-----------------|--------------|
+|**Insert**       |![Insert](datamatch_picture/Insert1.png)                  |
+|**Quick**        |![Quick](datamatch_picture/Quick.png)                   |
+|**Heap**         |![Heap](datamatch_picture/Heap.png)                    |
+|**Merge**        |![Merge](datamatch_picture/Merge.png)                   |
+
+### 空間複雜度
 
 ## 測試與驗證
 
