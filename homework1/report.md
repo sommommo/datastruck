@@ -270,10 +270,10 @@ void binaryInsertionSort(T* a, int n) {
 ### 時間複雜度 
 |Sort        |                   |
 |-----------------|--------------|
-|**Insert**       |![Insert](datamatch_picture/Insert1.png)                  |
-|**Quick**        |![Quick](datamatch_picture/Quick.png)                   |
-|**Heap**         |![Heap](datamatch_picture/Heap.png)                    |
-|**Merge**        |![Merge](datamatch_picture/Merge.png)                   |
+|**Insert**       |![Insert](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Insert1.png)                  |
+|**Quick**        |![Quick](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Quick.png)                   |
+|**Heap**         |![Heap](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Heap.png)                    |
+|**Merge**        |![Merge](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Merge.png)                   |
 
 ### 空間複雜度
 
