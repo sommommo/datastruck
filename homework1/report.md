@@ -276,7 +276,7 @@ void binaryInsertionSort(T* a, int n) {
 |**Merge**        |![Merge](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/Merge1.png)                   |
 
 ### 空間複雜度
-
+|Sort        |                   |
 |-----------------|--------------|
 |**Insert**       |![Insert2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/insert2.png)                  |
 |**Quick**        |![Quick2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/quick2.png)                   |
