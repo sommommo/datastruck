@@ -79,7 +79,7 @@ void HeapSortOptimized(T* a, int n) {
     }
 }
 ```
-/** Merge Sort **Recursive** */
+
 
 **Iterative Merge Sort**
 ```cpp
@@ -119,9 +119,150 @@ void MergeSortIterative(T* a, int n) {
     delete[] temp;
 }
 ```
-Quick_sort
-Insert_sort
+**Natural Merge Sort**
+```cpp
+template<class T>
+void naturalMergeSort(T* a, int n) {
+    if (n <= 1) return;
+    T* buffer = new T[n];
+    std::vector<std::pair<int, int>> runs;
+    // 檢測自然遞增區段
+    int start = 0;
+    while (start < n) {
+        int end = start + 1;
+        while (end < n && a[end - 1] <= a[end]) ++end;
+        runs.emplace_back(start, end);
+        start = end;
+    }
+    while (runs.size() > 1) {
+        std::vector<std::pair<int, int>> newRuns;
+        for (size_t i = 0; i + 1 < runs.size(); i += 2) {
+            int l = runs[i].first;
+            int m = runs[i].second;
+            int r = runs[i + 1].second;
+            int idx = l, i1 = l, i2 = runs[i + 1].first;
+            while (i1 < m && i2 < r) buffer[idx++] = (a[i1] <= a[i2] ? a[i1++] : a[i2++]);
+            while (i1 < m) buffer[idx++] = a[i1++];
+            while (i2 < r) buffer[idx++] = a[i2++];
+            for (int k = l; k < r; ++k) a[k] = buffer[k];
+            newRuns.emplace_back(l, r);
+        }
+        if (runs.size() % 2 == 1) newRuns.push_back(runs.back());
+        runs.swap(newRuns);
+    }
+    delete[] buffer;
+}
+```
+**Basic Quick sort**
+```cpp
+template<class T>
+void QuickSortBasic(T* a, int left, int right) {
+    if (left < right) {
+        T pivot = a[left];
+        int i = left, j = right + 1;
+        while (true) {
+            do { i++; } while (i <= right && a[i] < pivot);
+            do { j--; } while (a[j] > pivot);
+            if (i >= j) break;
+            std::swap(a[i], a[j]);
+        }
+        std::swap(a[left], a[j]);
+        QuickSortBasic(a, left, j - 1);
+        QuickSortBasic(a, j + 1, right);
+    }
+}
 
+void benchmarkQuickSortBasic(const std::vector<int>& arr) {
+    const int repeat = 5;
+    long long total_time = 0;
+    size_t mem_before = 0, mem_after = 0;
+    int n = arr.size();
+
+    for (int t = 0; t < repeat; ++t) {
+        int* temp = new int[n];
+        for (int i = 0; i < n; ++i) temp[i] = arr[i];
+
+        mem_before = getMemoryUsageKB();
+        auto start = std::chrono::high_resolution_clock::now();
+        QuickSortBasic(temp, 0, n - 1);
+        auto end = std::chrono::high_resolution_clock::now();
+        mem_after = getMemoryUsageKB();
+        total_time += std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+
+        delete[] temp;
+    }
+```
+**Optimization Quick sort**
+```cpp
+template<class T>
+T median3(T* a, int l, int r) {
+    int m = (l + r) / 2;
+    if (a[m] < a[l]) std::swap(a[l], a[m]);
+    if (a[r] < a[l]) std::swap(a[l], a[r]);
+    if (a[r] < a[m]) std::swap(a[m], a[r]);
+    // 現在 a[l] <= a[m] <= a[r]
+    std::swap(a[m], a[r - 1]);  // pivot 放到 r-1
+    return a[r - 1];
+}
+
+template<class T>
+void QuickSortOptimized(T* a, int left, int right) {
+    if (left + 10 <= right) {
+        T pivot = median3(a, left, right);
+        int i = left, j = right - 1;
+        while (true) {
+            while (a[++i] < pivot) {}
+            while (a[--j] > pivot) {}
+            if (i < j) std::swap(a[i], a[j]);
+            else break;
+        }
+        std::swap(a[i], a[right - 1]);  // restore pivot
+        QuickSortOptimized(a, left, i - 1);
+        QuickSortOptimized(a, i + 1, right);
+    }
+    else {
+        // 小序列改用插入排序
+        for (int p = left + 1; p <= right; ++p) {
+            T tmp = a[p];
+            int q = p - 1;
+            while (q >= left && a[q] > tmp) {
+                a[q + 1] = a[q];
+                --q;
+            }
+            a[q + 1] = tmp;
+        }
+    }
+}
+```
+**Insert sort**
+```cpp
+template<class T>
+void InsertionSort(T* a, const int n) {
+    for (int j = 2; j <= n; j++) {
+        T temp = a[j];
+        Insert(temp, a, j - 1);
+    }
+}
+```
+**Binary Insert sort**
+```cpp
+template<typename T>
+void binaryInsertionSort(T* a, int n) {
+    for (int i = 1; i < n; ++i) {
+        T key = a[i];
+        int lo = 0, hi = i - 1;
+        while (lo <= hi) {
+            int mid = lo + ((hi - lo) >> 1);
+            if (a[mid] > key) hi = mid - 1;
+            else lo = mid + 1;
+        }
+        if (lo < i) {
+            std::memmove(a + lo + 1, a + lo, static_cast<size_t>(i - lo) * sizeof(T));
+            a[lo] = key;
+        }
+    }
+}
+```
 
 
 ## 測試與驗證
