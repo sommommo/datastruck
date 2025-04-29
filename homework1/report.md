@@ -10,19 +10,83 @@
 
 本題要求實現多個排序演算法，並比較它們的效能。
 
-### 解題步驟
-
-
 ### 解題策略
 
+1. **Heap Sort**: 使用最大堆或最小堆的概念，將數列轉換為堆結構，然後進行排序。
+2. **Merge Sort**: 使用分治法，將數列分成兩半，然後遞迴地排序每一半，最後合併已排序的兩半。
+3. **Quick Sort**: 選擇一個基準值，將數列分成兩部分，一部分小於基準值，另一部分大於基準值，然後遞迴地排序這兩部分。
+4. **Insert Sort**: 將數列分為已排序和未排序兩部分，然後將未排序的元素插入到已排序的部分中，直到所有元素都被排序。
+5.呼叫testcase 獲取測資，並進行排序。
+6.收集各排序法及不同演算法所需的時間複雜度，並進行比較。
 
 
 ## 程式實作
+以下為各排序演算法的實作程式碼：
+basic Heap_sort
+```cpp
+template<class T>
+void Adjust(T* a, const int root, const int n)
+{
+    T e = a[root];
+    int j = 2 * root;
+    while (j <= n) {
+        if (j < n && a[j] < a[j + 1]) j++;
+        if (e >= a[j]) break;
+        a[j / 2] = a[j];
+        j *= 2;
+    }
+    a[j / 2] = e;
+}
+template<class T>
+void HeapSort(T* a, const int n) {
 
+    for (int i = n / 2; i >= 1; --i) {
+        Adjust(a, i, n);
+    }
 
+    for (int i = n; i >= 2; --i) {
+        std::swap(a[1], a[i]);
+        Adjust(a, 1, i - 1);
+    }
+}
+```
 
+Optimized Heap_sort
+```cpp
+void SiftDown(T* a, int start, int n) {
+    int root = start;
+    while (2 * root <= n) {
+        int child = 2 * root;
+        if (child + 1 <= n && a[child] < a[child + 1]) child++;
+        if (a[root] < a[child]) {
+            std::swap(a[root], a[child]);
+            root = child;
+        }
+        else {
+            return;
+        }
+    }
+}
 
-## 效能分析
+template<class T>
+void HeapSortOptimized(T* a, int n) {
+    for (int start = n / 2; start >= 1; --start) {
+        SiftDown(a, start, n);
+    }
+    for (int end = n; end > 1; --end) {
+        std::swap(a[1], a[end]);
+        SiftDown(a, 1, end - 1);
+    }
+}
+```
+
+Merge_sort
+    
+```cpp
+
+```
+Quick_sort
+Insert_sort
 
 
 

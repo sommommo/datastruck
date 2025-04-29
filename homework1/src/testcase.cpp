@@ -1,6 +1,6 @@
 #include "header.h"
 
-// ÀH¾÷²£¥Í 0~n-1 ªº´ú¸ê
+// ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0~n-1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 std::vector<int> generateRandomData(int n) {
     std::vector<int> data(n);
     for (int i = 0; i < n; ++i) data[i] = i;
@@ -10,7 +10,7 @@ std::vector<int> generateRandomData(int n) {
     return data;
 }
 
-// §â¸ê®Æ¼g¶iTXTÀÉ
+// ï¿½ï¿½ï¿½Æ¼gï¿½iTXTï¿½ï¿½
 void writeDataToFile(const std::string& filename, const std::vector<int>& data) {
     std::ofstream fout(filename);
     if (!fout) {
@@ -19,7 +19,7 @@ void writeDataToFile(const std::string& filename, const std::vector<int>& data) 
     }
     for (size_t i = 0; i < data.size(); ++i) {
         fout << data[i];
-        if (i != data.size() - 1) fout << ' '; // ªÅ®æ¤À¹j
+        if (i != data.size() - 1) fout << ' '; // ï¿½Å®ï¿½ï¿½ï¿½j
     }
     fout.close();
     std::cout << "File \"" << filename << "\" created successfully!\n";
@@ -32,7 +32,7 @@ int main() {
 
     auto data = generateRandomData(n);
 
-    std::string filename = "testcase" + std::to_string(n) + ".txt"; // ¦Û°Ê²Õ¥XÀÉ¦W
+    std::string filename = "testcase" + std::to_string(n) + ".txt"; // ï¿½Û°Ê²Õ¥Xï¿½É¦W
     writeDataToFile(filename, data);
 
     return 0;
