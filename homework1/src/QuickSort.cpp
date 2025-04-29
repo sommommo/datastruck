@@ -8,7 +8,7 @@ std::string to_string_custom(const T& value) {
     return oss.str();
 }
 
-// ========== Åªï¿½ï¿½ï¿½ï¿½ï¿½ ==========
+// ========== Åªï¿½ï¿½ï¿½ï¿½ï¿? ==========
 std::vector<int> readDataFromFile(const std::string& filename) {
     std::ifstream fin(filename);
     if (!fin) {
@@ -50,7 +50,7 @@ void benchmarkSTLSort(const std::vector<int>& arr) {
     std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
     std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_before << " KB\n";
     std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_after << " KB\n";
-    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤?¶qï¿½G" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
 }
 
 // ========== 2. ï¿½ï¿½ Quick Sort ==========
@@ -95,10 +95,10 @@ void benchmarkQuickSortBasic(const std::vector<int>& arr) {
     std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
     std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_before << " KB\n";
     std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_after << " KB\n";
-    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
+    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤?¶qï¿½G" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
 }
 
-// ========== 3. ï¿½ï¿½ï¿½uï¿½ï¿½ Quick Sort (ï¿½Tï¿½È¤ï¿½ï¿½ï¿½ï¿½) ==========
+// ========== 3. ï¿½ï¿½ï¿½uï¿½ï¿½ Quick Sort (ï¿½Tï¿½È¤ï¿½ï¿½ï¿½ï¿?) ==========
 template<class T>
 T median3(T* a, int l, int r) {
     int m = (l + r) / 2;
@@ -106,7 +106,7 @@ T median3(T* a, int l, int r) {
     if (a[r] < a[l]) std::swap(a[l], a[r]);
     if (a[r] < a[m]) std::swap(a[m], a[r]);
     // ï¿½{ï¿½b a[l] <= a[m] <= a[r]
-    std::swap(a[m], a[r - 1]);  // pivot ï¿½ï¿½ï¿½ r-1
+    std::swap(a[m], a[r - 1]);  // pivot ï¿½ï¿½ï¿? r-1
     return a[r - 1];
 }
 
@@ -159,23 +159,23 @@ void benchmarkQuickSortOptimized(const std::vector<int>& arr) {
         delete[] temp;
     }
 
-    std::cout << "====== ï¿½ï¿½ï¿½uï¿½ï¿½ Quick Sort (Median-of-Three) ======\n";
-    std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½Æ§Ç®É¶ï¿½ï¿½G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
-    std::cout << "ï¿½Æ§Ç«eï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_before << " KB\n";
-    std::cout << "ï¿½Æ§Ç«ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥Î¶qï¿½G" << mem_after << " KB\n";
-    std::cout << "ï¿½Oï¿½ï¿½ï¿½ï¿½Ï¥ï¿½ï¿½Ü¤Æ¶qï¿½G" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
+    std::cout << "======  Quick Sort (Median-of-Three) ======\n";
+    std::cout << "¥­§¡±Æ§Ç®É¶¡¡G" << total_time / repeat << " ï¿½Lï¿½ï¿½\n";
+    std::cout << "±Æ§Ç«e°O¾ÐÅé¨Ï¥Î¶q" << mem_before << " KB\n";
+    std::cout << "±Æ§Ç«á°O¾ÐÅé¨Ï¥Î¶q" << mem_after << " KB\n";
+    std::cout << "°O¾ÐÅé¨Ï¥ÎÅÜ¤Æ¶q" << (mem_after > mem_before ? mem_after - mem_before : 0) << " KB\n\n";
 }
 
-// ========== ï¿½Dï¿½{ï¿½ï¿½ ==========
+// ========== ¥Dµ{¦¡ ==========
+/*
 int main() {
     int n;
-    std::cout << "ï¿½Ð¿ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½Ó¼Æ¡]ï¿½|Åªï¿½ï¿½ testcaseN.txtï¿½^ï¿½G";
+    std::cout << "½Ð¿é¤J¤¸¯À­Ó¼Æ¡]·|Åª¨ú testcaseN.txt¡^¡G";
     std::cin >> n;
-
     std::string filename = "testcase" + to_string_custom(n) + ".txt";
     auto data = readDataFromFile(filename);
     if (data.empty()) {
-        std::cerr << "ï¿½ï¿½ï¿½Åªï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡Aï¿½Ð½Tï¿½{ï¿½É®×¬Oï¿½_ï¿½sï¿½bï¿½C\n";
+        std::cerr << "¸ê®ÆÅª¨ú¥¢±Ñ¡A½Ð½T»{ÀÉ®×¬O§_¦s¦b¡C\n";
         return 1;
     }
 
@@ -185,3 +185,4 @@ int main() {
 
     return 0;
 }
+*/
