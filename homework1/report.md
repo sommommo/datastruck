@@ -277,6 +277,13 @@ void binaryInsertionSort(T* a, int n) {
 
 ### 空間複雜度
 
+|-----------------|--------------|
+|**Insert**       |![Insert2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/insert2.png)                  |
+|**Quick**        |![Quick2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/quick2.png)                   |
+|**Heap**         |![Heap2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/heap2.png)                    |
+|**Merge**        |![Merge2](https://github.com/sommommo/datastruck/blob/main/datamatch_picture/merge2.png)                   |
+
+
 ## 測試與驗證
 
 ### 測試案例
