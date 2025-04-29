@@ -22,7 +22,7 @@
 
 ## 程式實作
 以下為各排序演算法的實作程式碼：
-basic Heap_sort
+**basic Heap_sort**
 ```cpp
 template<class T>
 void Adjust(T* a, const int root, const int n)
@@ -51,7 +51,7 @@ void HeapSort(T* a, const int n) {
 }
 ```
 
-Optimized Heap_sort
+**Optimized Heap_sort**
 ```cpp
 void SiftDown(T* a, int start, int n) {
     int root = start;
@@ -79,11 +79,45 @@ void HeapSortOptimized(T* a, int n) {
     }
 }
 ```
+/** Merge Sort **Recursive** */
 
-Merge_sort
-    
+**Iterative Merge Sort**
 ```cpp
+template<class T>
+void Merge(T* initList, T* mergedList, int l, int m, int n) {
+    int i1 = l, i2 = m + 1, iRes = l;
+    while (i1 <= m && i2 <= n) {
+        if (initList[i1] <= initList[i2]) mergedList[iRes++] = initList[i1++];
+        else mergedList[iRes++] = initList[i2++];
+    }
+    std::copy(initList + i1, initList + m + 1, mergedList + iRes);
+    iRes += (m - i1 + 1);
+    std::copy(initList + i2, initList + n + 1, mergedList + iRes);
+}
 
+template<class T>
+void MergePass(T* initList, T* resultList, int n, int s) {
+    int i;
+    for (i = 0; i <= n - 2 * s; i += 2 * s) {
+        Merge(initList, resultList, i, i + s - 1, i + 2 * s - 1);
+    }
+    if (i + s - 1 < n) {
+        Merge(initList, resultList, i, i + s - 1, n);
+    }
+    else {
+        std::copy(initList + i, initList + n + 1, resultList + i);
+    }
+}
+
+template<class T>
+void MergeSortIterative(T* a, int n) {
+    T* temp = new T[n + 1];
+    for (int sz = 1; sz < n; sz *= 2) {
+        MergePass(a, temp, n - 1, sz);
+        MergePass(temp, a, n - 1, sz);
+    }
+    delete[] temp;
+}
 ```
 Quick_sort
 Insert_sort
