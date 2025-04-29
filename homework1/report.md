@@ -286,7 +286,52 @@ void binaryInsertionSort(T* a, int n) {
 
 ## 測試與驗證
 
+程式輸入測試資料，並驗證排序結果是否正確。以下是測試結果：
 
+```cpp
+std::vector<int> generateRandomData(int n) {
+    std::vector<int> data(n);
+    for (int i = 0; i < n; ++i) data[i] = i;
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(data.begin(), data.end(), g);
+    return data;
+}
+
+void writeDataToFile(const std::string& filename, const std::vector<int>& data) {
+    std::ofstream fout(filename);
+    if (!fout) {
+        std::cerr << "Failed to open file for writing.\n";
+        return;
+    }
+    for (size_t i = 0; i < data.size(); ++i) {
+        fout << data[i];
+        if (i != data.size() - 1) fout << ' '; 
+    }
+    fout.close();
+    std::cout << "File \"" << filename << "\" created successfully!\n";
+}
+
+int main() {
+    int n;
+    std::cout << "Enter number of elements: ";
+    std::cin >> n;
+
+    auto data = generateRandomData(n);
+
+    std::string filename = "testcase" + std::to_string(n) + ".txt";
+    writeDataToFile(filename, data);
+
+    return 0;
+}
+```
+
+```cpp
+測資 N 為 10000 ， 25000 ，50000 ， 100000 ， 1000000 ， 10000000
+測試結果如下：
+```
 
 
 ## 申論及開發報告
+
+在本次作業中，我們實現了四種不同的排序演算法，包括 Heap Sort、Merge Sort、Quick Sort 和 Insert Sort。每種演算法都有其獨特的優缺點，適用於不同的場景。通過對這些演算法的比較，我們可以更好地理解它們的性能特徵和適用性。
